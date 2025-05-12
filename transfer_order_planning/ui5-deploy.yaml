@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: rovensa.transferorderplanning
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        ignoreCertError: true # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        target:
+          url: https://srvsapdapp.agrobus.net/
+          client: '100'
+        app:
+          name: ZUI5_MM_TO_PLAN
+          description: SAP Fiori - Transfer Order Planning
+          package: ZMM001
+          transport: HSDK968927
+        exclude:
+          - /test/
