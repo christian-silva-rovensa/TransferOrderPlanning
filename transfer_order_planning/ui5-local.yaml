@@ -6,7 +6,7 @@ metadata:
 type: application
 framework:
   name: SAPUI5
-  version: 1.126.0
+  version: 1.108.43
   libraries:
     - name: sap.m
     - name: sap.ui.core
@@ -37,12 +37,14 @@ server:
         mountPath: /
         services:
           - urlPath: /sap/opu/odata/sap/ZUI_MM_TRANSF_ORDER_PLAN
-            metadataPath: ./webapp/localService/metadata.xml
-            mockdataPath: ./webapp/localService/data
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
-        annotations: []
+        annotations:
+          - localPath: ./webapp/localService/mainService/ZUI_MM_TRANSF_ORDER_PLAN_VAN.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_MM_TRANSF_ORDER_PLAN_VAN',Version='0001')/$value/
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
         component: rovensa.transferorderplanning
-        ui5Theme: sap_horizon
+        ui5Theme: sap_fiori_3

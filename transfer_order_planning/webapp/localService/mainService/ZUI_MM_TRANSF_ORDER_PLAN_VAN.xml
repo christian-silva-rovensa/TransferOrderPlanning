@@ -35,6 +35,9 @@
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/CreatedAt">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/to_ChangeDocuments">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/to_Header">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
@@ -115,17 +118,7 @@
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="Label" String="ChangeDocuments"/>
                             <PropertyValue Property="ID" String="ChangeDocuments"/>
-                            <PropertyValue Property="Target" String="UI.FACET$2$">
-                                <Annotation Term="Core.Messages">
-                                    <Collection>
-                                        <Record>
-                                            <PropertyValue Property="code" String="SADL_GW_EXP_VOCAN-000"/>
-                                            <PropertyValue Property="message" String="Navigation property '_ChangeDocuments' of annotation 'UI.FACET$2$' in proj./view 'Planning' not found"/>
-                                            <PropertyValue Property="severity" String="error"/>
-                                        </Record>
-                                    </Collection>
-                                </Annotation>
-                            </PropertyValue>
+                            <PropertyValue Property="Target" AnnotationPath="to_ChangeDocuments/@UI.LineItem"/>
                         </Record>
                     </Collection>
                 </Annotation>
@@ -251,18 +244,14 @@
                 </Annotation>
                 <Annotation Term="UI.LineItem">
                     <Collection>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Cockpit Ready"/>
+                            <PropertyValue Property="Action" String="cds_zui_mm_transf_order_plan.cds_zui_mm_transf_order_plan_Entities/cockpitReady"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                        </Record>
                         <Record Type="UI.DataFieldWithIntentBasedNavigation">
-                            <PropertyValue Property="SemanticObject" String="">
-                                <Annotation Term="Core.Messages">
-                                    <Collection>
-                                        <Record>
-                                            <PropertyValue Property="message" String="ERROR: Mandatory Value for Semantic Object not found"/>
-                                            <PropertyValue Property="severity" String="error"/>
-                                        </Record>
-                                    </Collection>
-                                </Annotation>
-                            </PropertyValue>
-                            <PropertyValue Property="Action" String="display"/>
+                            <PropertyValue Property="SemanticObject" String="PurchaseOrder"/>
+                            <PropertyValue Property="Action" String="displayFactSheet"/>
                             <PropertyValue Property="Value" Path="PurchaseOrder"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
@@ -270,9 +259,19 @@
                             <PropertyValue Property="Value" Path="PurchaseOrderItem"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Product Transfer"/>
+                            <PropertyValue Property="Action" String="cds_zui_mm_transf_order_plan.cds_zui_mm_transf_order_plan_Entities/productTransfer"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                        </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Material"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Pending to be moved"/>
+                            <PropertyValue Property="Action" String="cds_zui_mm_transf_order_plan.cds_zui_mm_transf_order_plan_Entities/pendingToBeMoved"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="PurchaseOrderItemText"/>
@@ -433,6 +432,90 @@
                         <PropertyPath>PurchasingGroup</PropertyPath>
                         <PropertyPath>SupplyingPlant</PropertyPath>
                     </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.ChangeDocumentsType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="{@i18n&gt;changeDocument}"/>
+                            <PropertyValue Property="ID" String="ChangeDocument"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Transfer Order Planning Change Doc."/>
+                        <PropertyValue Property="TypeNamePlural" String="Transfer Order Planning Change Docs"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ChangeNumber"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangeNumber"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FieldDescription"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangedBy"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangedAt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OldVAlue"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="NewValue"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangeNumber"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FieldDescription"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangedBy"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangedAt"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OldVAlue"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="NewValue"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="ChangeNumber"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
                 </Annotation>
             </Annotations>
         </Schema>

@@ -30,11 +30,9 @@ server:
         mountPath: /
         services:
           - urlPath: /sap/opu/odata/sap/ZUI_MM_TRANSF_ORDER_PLAN
-            metadataPath: ./webapp/localService/metadata.xml
-            mockdataPath: ./webapp/localService/data
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
         annotations:
-          - localPath: ./webapp/localService/ZUI_MM_TRANSF_ORDER_PLAN_VAN.xml
+          - localPath: ./webapp/localService/mainService/ZUI_MM_TRANSF_ORDER_PLAN_VAN.xml
             urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_MM_TRANSF_ORDER_PLAN_VAN',Version='0001')/$value/
-          - localPath: ./webapp/annotations/annotation.xml
-            urlPath: annotations/annotation.xml

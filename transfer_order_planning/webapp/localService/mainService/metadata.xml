@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
         <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
     </edmx:Reference>
-    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='SAP__SELF',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://srvsapdapp.agrobus.net/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='SAP__SELF',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
     </edmx:Reference>
     <edmx:DataServices m:DataServiceVersion="2.0">
@@ -285,8 +285,8 @@
                 <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="PurchaseOrderItemText" Type="Edm.String" MaxLength="40" sap:label="Short Text" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="OrderQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="PurchaseOrderQuantityUnit" sap:label="Order Quantity" sap:quickinfo="Purchase Order Quantity" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="PurchaseOrderQuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Order Unit" sap:quickinfo="Purchase Order Unit of Measure" sap:semantics="unit-of-measure"/>
-                <Property Name="FirstDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="First Delivery Date"/>
+                <Property Name="PurchaseOrderQuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Order Unit" sap:quickinfo="Purchase Order Unit of Measure" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="FirstDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="First Delivery Date" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="RequestFinishDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="RequestFinishDate_fc" sap:label="CCC – Request Finish Date" sap:quickinfo="Request Finish Date"/>
                 <Property Name="ConfirmedLoadingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ConfirmedLoadingDate_fc" sap:label="LOGISTIC – Confirmed Loading Date" sap:quickinfo="Sales Order Planning - Confirmed Loadind Date"/>
                 <Property Name="ConfirmedLoadingTime" Type="Edm.Time" Precision="0" sap:field-control="ConfirmedLoadingTime_fc" sap:label="LOGISTIC – Confirmed Loading Time" sap:quickinfo="Sales Order Planning - Expected Loading Time"/>
@@ -297,12 +297,13 @@
                 <Property Name="CockpitReady" Type="Edm.String" MaxLength="10" sap:field-control="CockpitReady_fc" sap:label="Cockpit Ready" sap:quickinfo="Sales Order Planning - Cockpit Ready"/>
                 <Property Name="ProductTransfer" Type="Edm.String" MaxLength="10" sap:field-control="ProductTransfer_fc" sap:label="Product Transfer" sap:quickinfo="Sales Order Planning - Product Transfer"/>
                 <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Creation Date" sap:quickinfo="Purchasing Document Creation Date" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ArrivalDateJ" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ArrivalDateJ_fc" sap:label="Just. Arrival Date Desc." sap:quickinfo="Justification of change - Arrival Date"/>
-                <Property Name="RequestFinishDateJ" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="RequestFinishDateJ_fc" sap:label="Just. Request Finish Date Desc." sap:quickinfo="Justification of change - Request Finish Date"/>
+                <Property Name="ArrivalDateJ" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ArrivalDateJ_fc" sap:label="CCC - Just. Max. Arrival Date" sap:quickinfo="Justification of change - Arrival Date"/>
+                <Property Name="RequestFinishDateJ" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="RequestFinishDateJ_fc" sap:label="CCC - Just. Request Finish Date" sap:quickinfo="Justification of change - Request Finish Date"/>
                 <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CommittedDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Committed Delivery Date" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By" sap:quickinfo="User of person who created a purchasing document" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="Delivery" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Delivery" sap:quickinfo="Number of Material Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderCreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="PO Creation Date" sap:quickinfo="Creation Date of Purchasing Document"/>
+                <Property Name="Delivery" Type="Edm.String" MaxLength="10" sap:label="Delivery" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="DeliveryStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Delivery Status" sap:quickinfo="Overall Processing Status (Header/All Items)" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
                 <Property Name="DeliveryStatusDescription" Type="Edm.String" MaxLength="20" sap:label="Delivery Status Description" sap:quickinfo="Status Description" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="FinalFinishDateNotes" Type="Edm.String" MaxLength="200" sap:display-format="UpperCase" sap:field-control="FinalFinishDateNotes_fc" sap:label="Fin. Finish Dt Notes" sap:quickinfo="Final Finish Date Notes"/>
@@ -316,13 +317,41 @@
                 <Property Name="PurchasingOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purch. Organization" sap:quickinfo="Purchasing Organization" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
                 <Property Name="PurchasingGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Purchasing Group" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="SupplyingPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Supplying Plant" sap:quickinfo="Supplying (issuing) plant in case of stock transport order"/>
-                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By" sap:quickinfo="Name of Person Responsible for Creating the Object"/>
-                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created At" sap:quickinfo="Created At - Timestamp"/>
-                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed By" sap:quickinfo="Name of Person Who Changed Object"/>
-                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Changed At" sap:quickinfo="Changed At - Timestamp"/>
-                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Loc Last Changed At" sap:quickinfo="Local last changed at - timestamp"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By" sap:quickinfo="Name of Person Responsible for Creating the Object" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created At" sap:quickinfo="Created At - Timestamp" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed By" sap:quickinfo="Name of Person Who Changed Object" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Changed At" sap:quickinfo="Changed At - Timestamp" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Loc Last Changed At" sap:quickinfo="Local last changed at - timestamp" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_ChangeDocuments" Relationship="cds_zui_mm_transf_order_plan.assoc_EAD4BE1FCEE6348DC87289F0D15929DC" FromRole="FromRole_assoc_EAD4BE1FCEE6348DC87289F0D15929DC" ToRole="ToRole_assoc_EAD4BE1FCEE6348DC87289F0D15929DC"/>
                 <NavigationProperty Name="to_Header" Relationship="cds_zui_mm_transf_order_plan.assoc_26CD39ACD438BC79F931000DECE66882" FromRole="FromRole_assoc_26CD39ACD438BC79F931000DECE66882" ToRole="ToRole_assoc_26CD39ACD438BC79F931000DECE66882"/>
                 <NavigationProperty Name="to_Item" Relationship="cds_zui_mm_transf_order_plan.assoc_95C04423332F3FE38D8F47423156BD95" FromRole="FromRole_assoc_95C04423332F3FE38D8F47423156BD95" ToRole="ToRole_assoc_95C04423332F3FE38D8F47423156BD95"/>
+            </EntityType>
+            <EntityType Name="ChangeDocumentsType" sap:label="Transfer Order Planning - Chg Documents" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PurchaseOrder"/>
+                    <PropertyRef Name="PurchaseOrderItem"/>
+                    <PropertyRef Name="ObjectClass"/>
+                    <PropertyRef Name="ObjectId"/>
+                    <PropertyRef Name="ChangeNumber"/>
+                    <PropertyRef Name="TableName"/>
+                    <PropertyRef Name="RecordKey"/>
+                    <PropertyRef Name="FieldName"/>
+                    <PropertyRef Name="ChangeIndicator"/>
+                </Key>
+                <Property Name="PurchaseOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchasing Document" sap:quickinfo="Purchasing Document Number"/>
+                <Property Name="PurchaseOrderItem" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="NonNegative" sap:label="Item" sap:quickinfo="Item Number of Purchasing Document"/>
+                <Property Name="ObjectClass" Type="Edm.String" Nullable="false" MaxLength="15" sap:display-format="UpperCase" sap:label="Change Doc. Object" sap:quickinfo="Object class"/>
+                <Property Name="ObjectId" Type="Edm.String" Nullable="false" MaxLength="90" sap:display-format="UpperCase" sap:label="Object Value"/>
+                <Property Name="ChangeNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Document Number" sap:quickinfo="Change Number of Document"/>
+                <Property Name="TableName" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Table Name"/>
+                <Property Name="RecordKey" Type="Edm.String" Nullable="false" MaxLength="70" sap:display-format="UpperCase" sap:label="Table Key" sap:quickinfo="Changed table record key"/>
+                <Property Name="FieldName" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Field Name"/>
+                <Property Name="ChangeIndicator" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Change Indicator" sap:quickinfo="Type of Change"/>
+                <Property Name="FieldDescription" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Field Name/Description" sap:quickinfo="Field Name"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed By" sap:quickinfo="User Name of Person Making Change in Change Document"/>
+                <Property Name="ChangedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Changed At" sap:quickinfo="Creation date of the change document"/>
+                <Property Name="OldVAlue" Type="Edm.String" MaxLength="254" sap:display-format="UpperCase" sap:label="Old Value" sap:quickinfo="Old Content of Changed Field"/>
+                <Property Name="NewValue" Type="Edm.String" MaxLength="254" sap:display-format="UpperCase" sap:label="New Value" sap:quickinfo="Old Content of Changed Field"/>
             </EntityType>
             <EntityType Name="PurchaseOrderType" sap:label="Transfer Order Planning Header" sap:content-version="1">
                 <Key>
@@ -330,6 +359,7 @@
                 </Key>
                 <Property Name="PurchaseOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Order" sap:quickinfo="Purchase Order Number"/>
                 <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By" sap:quickinfo="User of person who created a purchasing document"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On" sap:quickinfo="Creation Date of Purchasing Document"/>
                 <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"/>
                 <Property Name="PurchasingOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purch. Organization" sap:quickinfo="Purchasing Organization"/>
                 <Property Name="PurchasingGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Purchasing Group"/>
@@ -510,13 +540,17 @@
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
+            <Association Name="assoc_26CD39ACD438BC79F931000DECE66882" sap:content-version="1">
+                <End Type="cds_zui_mm_transf_order_plan.PlanningType" Multiplicity="1" Role="FromRole_assoc_26CD39ACD438BC79F931000DECE66882"/>
+                <End Type="cds_zui_mm_transf_order_plan.PurchaseOrderType" Multiplicity="1" Role="ToRole_assoc_26CD39ACD438BC79F931000DECE66882"/>
+            </Association>
             <Association Name="assoc_95C04423332F3FE38D8F47423156BD95" sap:content-version="1">
                 <End Type="cds_zui_mm_transf_order_plan.PlanningType" Multiplicity="1" Role="FromRole_assoc_95C04423332F3FE38D8F47423156BD95"/>
                 <End Type="cds_zui_mm_transf_order_plan.ItemType" Multiplicity="1" Role="ToRole_assoc_95C04423332F3FE38D8F47423156BD95"/>
             </Association>
-            <Association Name="assoc_26CD39ACD438BC79F931000DECE66882" sap:content-version="1">
-                <End Type="cds_zui_mm_transf_order_plan.PlanningType" Multiplicity="1" Role="FromRole_assoc_26CD39ACD438BC79F931000DECE66882"/>
-                <End Type="cds_zui_mm_transf_order_plan.PurchaseOrderType" Multiplicity="1" Role="ToRole_assoc_26CD39ACD438BC79F931000DECE66882"/>
+            <Association Name="assoc_EAD4BE1FCEE6348DC87289F0D15929DC" sap:content-version="1">
+                <End Type="cds_zui_mm_transf_order_plan.PlanningType" Multiplicity="1" Role="FromRole_assoc_EAD4BE1FCEE6348DC87289F0D15929DC"/>
+                <End Type="cds_zui_mm_transf_order_plan.ChangeDocumentsType" Multiplicity="*" Role="ToRole_assoc_EAD4BE1FCEE6348DC87289F0D15929DC"/>
             </Association>
             <EntityContainer Name="cds_zui_mm_transf_order_plan_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx pdf">
                 <EntitySet Name="SAP__Currencies" EntityType="cds_zui_mm_transf_order_plan.SAP__Currency" sap:content-version="1"/>
@@ -532,6 +566,7 @@
                 <EntitySet Name="I_PurchaseOrderItemAPI01" EntityType="cds_zui_mm_transf_order_plan.I_PurchaseOrderItemAPI01Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="I_TotalDeliveryStatusText" EntityType="cds_zui_mm_transf_order_plan.I_TotalDeliveryStatusTextType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="Planning" EntityType="cds_zui_mm_transf_order_plan.PlanningType" sap:creatable="false" sap:deletable="false" sap:content-version="1" sap:updatable-path="Update_mc"/>
+                <EntitySet Name="ChangeDocuments" EntityType="cds_zui_mm_transf_order_plan.ChangeDocumentsType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="PurchaseOrder" EntityType="cds_zui_mm_transf_order_plan.PurchaseOrderType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="Item" EntityType="cds_zui_mm_transf_order_plan.ItemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <AssociationSet Name="to_formatSet" Association="cds_zui_mm_transf_order_plan.to_format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
@@ -541,6 +576,10 @@
                 <AssociationSet Name="to_pdfstandardSet" Association="cds_zui_mm_transf_order_plan.to_pdfstandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_pdfstandard"/>
                     <End EntitySet="SAP__PDFStandardSet" Role="ToRole_to_pdfstandard"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_EAD4BE1FCEE6348DC87289F0D15929DC" Association="cds_zui_mm_transf_order_plan.assoc_EAD4BE1FCEE6348DC87289F0D15929DC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Planning" Role="FromRole_assoc_EAD4BE1FCEE6348DC87289F0D15929DC"/>
+                    <End EntitySet="ChangeDocuments" Role="ToRole_assoc_EAD4BE1FCEE6348DC87289F0D15929DC"/>
                 </AssociationSet>
                 <AssociationSet Name="to_tablecolumnsSet" Association="cds_zui_mm_transf_order_plan.to_tablecolumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_tablecolumns"/>
@@ -764,6 +803,7 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
+                <Annotation Term="Common.SemanticObject" String="PurchaseOrder"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/PurchaseOrderItem" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ValueList">
@@ -2033,6 +2073,14 @@
                     <Record>
                         <PropertyValue Property="RestrictedProperties">
                             <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_ChangeDocuments"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
                                 <Record>
                                     <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Header"/>
                                     <PropertyValue Property="InsertRestrictions">
