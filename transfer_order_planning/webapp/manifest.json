@@ -97,6 +97,18 @@
           }
         }
       },
+      "custom": {
+        "dataSource": "mainService",
+        "preload": false,
+        "settings": {
+          "defaultBindingMode": "OneWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
       "@i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "uri": "i18n/i18n.properties"
@@ -119,16 +131,22 @@
               "Planning": {
                 "EntitySet": "Planning",
                 "Actions": {
+                  "DisplayMessages": {
+                    "id": "DisplayMessagesButton",
+                    "text": "{i18n>messages}",
+                    "press": "DisplayMessages",
+                    "requiresSelection": false
+                  },
                   "Upload": {
                     "id": "UploadButton",
-                    "text": "Upload",
-                    "press": "Upload",
+                    "text": "{i18n>upload}",
+                    "press": "FileUpload",
                     "requiresSelection": false
                   },
                   "Template": {
                     "id": "TemplateButton",
-                    "text": "Template",
-                    "press": "Template",
+                    "text": "{i18n>template}",
+                    "press": "DownloadTemplate",
                     "requiresSelection": false
                   }
                 }
