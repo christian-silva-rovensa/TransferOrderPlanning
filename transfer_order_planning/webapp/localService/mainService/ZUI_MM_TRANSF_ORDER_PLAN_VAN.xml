@@ -26,7 +26,16 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema Namespace="zui_mm_transf_order_plan_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ArrivalDateJD">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/RequestFinishDateJD">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/DeliveryStatusDescription">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/FinalFinishDateJD">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/CreatedBy">
@@ -62,9 +71,6 @@
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ArrivalDateJ_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
-            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/CockpitReady_fc">
-                <Annotation Term="UI.Hidden"/>
-            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ConfirmedLoadingDate_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
@@ -84,9 +90,6 @@
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/MinArrivalDate_fc">
-                <Annotation Term="UI.Hidden"/>
-            </Annotations>
-            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ProductTransfer_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/RequestFinishDate_fc">

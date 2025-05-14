@@ -264,7 +264,6 @@
                 <Property Name="pendingToBeMoved_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="productTransfer_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ArrivalDateJ_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CockpitReady_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ConfirmedLoadingDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ConfirmedLoadingTime_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FinalFinishDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -272,7 +271,6 @@
                 <Property Name="FinalFinishDateNotes_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="MaxArrivalDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="MinArrivalDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ProductTransfer_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="RequestFinishDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="RequestFinishDateJ_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TransportCompany_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -286,6 +284,7 @@
                 <Property Name="PurchaseOrderItemText" Type="Edm.String" MaxLength="40" sap:label="Short Text" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="OrderQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="PurchaseOrderQuantityUnit" sap:label="Order Quantity" sap:quickinfo="Purchase Order Quantity" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="PurchaseOrderQuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Order Unit" sap:quickinfo="Purchase Order Unit of Measure" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="PurchaseOrderItemStatus" Type="Edm.String" MaxLength="9"/>
                 <Property Name="FirstDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="First Delivery Date" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="RequestFinishDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="RequestFinishDate_fc" sap:label="CCC – Request Finish Date" sap:quickinfo="Request Finish Date"/>
                 <Property Name="ConfirmedLoadingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ConfirmedLoadingDate_fc" sap:label="LOGISTIC – Confirmed Loading Date" sap:quickinfo="Sales Order Planning - Confirmed Loadind Date"/>
@@ -294,11 +293,13 @@
                 <Property Name="VesselEtd" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="VesselEtd_fc" sap:label="CCC - Vessel ETD" sap:quickinfo="Sales Order Planning - Vessel ETD"/>
                 <Property Name="MinArrivalDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="MinArrivalDate_fc" sap:label="CCC - Min. Arrival Date" sap:quickinfo="Min. Arrival Date"/>
                 <Property Name="MaxArrivalDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="MaxArrivalDate_fc" sap:label="CCC - Max. Arrival Date" sap:quickinfo="Max. Arraival Date"/>
-                <Property Name="CockpitReady" Type="Edm.String" MaxLength="10" sap:field-control="CockpitReady_fc" sap:label="Cockpit Ready" sap:quickinfo="Sales Order Planning - Cockpit Ready"/>
-                <Property Name="ProductTransfer" Type="Edm.String" MaxLength="10" sap:field-control="ProductTransfer_fc" sap:label="Product Transfer" sap:quickinfo="Sales Order Planning - Product Transfer"/>
+                <Property Name="CockpitReady" Type="Edm.String" MaxLength="10" sap:label="Cockpit Ready" sap:quickinfo="Sales Order Planning - Cockpit Ready" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductTransfer" Type="Edm.String" MaxLength="10" sap:label="Product Transfer" sap:quickinfo="Sales Order Planning - Product Transfer" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Creation Date" sap:quickinfo="Purchasing Document Creation Date" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ArrivalDateJ" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ArrivalDateJ_fc" sap:label="CCC - Just. Max. Arrival Date" sap:quickinfo="Justification of change - Arrival Date"/>
-                <Property Name="RequestFinishDateJ" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="RequestFinishDateJ_fc" sap:label="CCC - Just. Request Finish Date" sap:quickinfo="Justification of change - Request Finish Date"/>
+                <Property Name="ArrivalDateJ" Type="Edm.String" MaxLength="2" sap:field-control="ArrivalDateJ_fc" sap:label="CCC - Just. Max. Arrival Date" sap:quickinfo="Justification of change - Arrival Date" sap:value-list="standard"/>
+                <Property Name="ArrivalDateJD" Type="Edm.String" MaxLength="50" sap:label="Just. Max. Arrival Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
+                <Property Name="RequestFinishDateJ" Type="Edm.String" MaxLength="2" sap:field-control="RequestFinishDateJ_fc" sap:label="CCC - Just. Request Finish Date" sap:quickinfo="Justification of change - Request Finish Date" sap:value-list="standard"/>
+                <Property Name="RequestFinishDateJD" Type="Edm.String" MaxLength="50" sap:label="Just. Request Finish Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
                 <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CommittedDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Committed Delivery Date" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By" sap:quickinfo="User of person who created a purchasing document" sap:creatable="false" sap:updatable="false"/>
@@ -307,7 +308,8 @@
                 <Property Name="DeliveryStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Delivery Status" sap:quickinfo="Overall Processing Status (Header/All Items)" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
                 <Property Name="DeliveryStatusDescription" Type="Edm.String" MaxLength="20" sap:label="Delivery Status Description" sap:quickinfo="Status Description" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="FinalFinishDateNotes" Type="Edm.String" MaxLength="200" sap:display-format="UpperCase" sap:field-control="FinalFinishDateNotes_fc" sap:label="Fin. Finish Dt Notes" sap:quickinfo="Final Finish Date Notes"/>
-                <Property Name="FinalFinishDateJ" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="FinalFinishDateJ_fc" sap:label="Just. Final Finish Date Desc." sap:quickinfo="Justification of change - Final Finish Date"/>
+                <Property Name="FinalFinishDateJ" Type="Edm.String" MaxLength="2" sap:field-control="FinalFinishDateJ_fc" sap:label="FACTORY - Just. Final Finish Date" sap:quickinfo="Justification of change - Final Finish Date" sap:value-list="standard"/>
+                <Property Name="FinalFinishDateJD" Type="Edm.String" MaxLength="50" sap:label="Just. Final Finish Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
                 <Property Name="IncotermsClassification" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Incoterms" sap:quickinfo="Incoterms (Part 1)" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="ConfirmedLoadingDateNotes" Type="Edm.String" MaxLength="200" sap:label="LOGISTIC - Confirmed Loading Date Notes" sap:quickinfo="Loading Date Notes"/>
                 <Property Name="TransportCompany" Type="Edm.String" MaxLength="100" sap:field-control="TransportCompany_fc" sap:label="LOGISTIC - Transport Company" sap:quickinfo="Transport Company"/>
@@ -381,6 +383,14 @@
                 <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
                 <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Creation Date" sap:quickinfo="Purchasing Document Creation Date"/>
                 <Property Name="ChangedOn" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Last Changed on" sap:quickinfo="Purchasing Document Item Change Date"/>
+                <Property Name="IsCompletelyDelivered" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Delivery Completed" sap:quickinfo="&quot;Delivery Completed&quot; Indicator"/>
+            </EntityType>
+            <EntityType Name="zi_sd_so_plan_justType" sap:label="Sales Order Planning - Justification" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="JustCode"/>
+                </Key>
+                <Property Name="JustCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:text="JustDescription" sap:label="Justif." sap:quickinfo="Sales Order Planning - Justification of change"/>
+                <Property Name="JustDescription" Type="Edm.String" MaxLength="50" sap:label="Justif. Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
             </EntityType>
             <EntityType Name="SAP__Currency" sap:content-version="1">
                 <Key>
@@ -569,6 +579,7 @@
                 <EntitySet Name="ChangeDocuments" EntityType="cds_zui_mm_transf_order_plan.ChangeDocumentsType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="PurchaseOrder" EntityType="cds_zui_mm_transf_order_plan.PurchaseOrderType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="Item" EntityType="cds_zui_mm_transf_order_plan.ItemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zi_sd_so_plan_just" EntityType="cds_zui_mm_transf_order_plan.zi_sd_so_plan_justType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <AssociationSet Name="to_formatSet" Association="cds_zui_mm_transf_order_plan.to_format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_format"/>
                     <End EntitySet="SAP__FormatSet" Role="ToRole_to_format"/>
@@ -1644,6 +1655,46 @@
                     </Record>
                 </Annotation>
             </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ArrivalDateJ" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="CCC - Just. Max. Arrival Date"/>
+                        <PropertyValue Property="CollectionPath" String="zi_sd_so_plan_just"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ArrivalDateJ"/>
+                                    <PropertyValue Property="ValueListProperty" String="JustCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="JustDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/RequestFinishDateJ" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="CCC - Just. Request Finish Date"/>
+                        <PropertyValue Property="CollectionPath" String="zi_sd_so_plan_just"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="RequestFinishDateJ"/>
+                                    <PropertyValue Property="ValueListProperty" String="JustCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="JustDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/DeliveryStatus" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ValueList">
                     <Record>
@@ -1661,6 +1712,26 @@
                                 </Record>
                                 <Record Type="Common.ValueListParameterDisplayOnly">
                                     <PropertyValue Property="ValueListProperty" String="TotalDeliveryStatusDesc"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/FinalFinishDateJ" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="FACTORY - Just. Final Finish Date"/>
+                        <PropertyValue Property="CollectionPath" String="zi_sd_so_plan_just"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="FinalFinishDateJ"/>
+                                    <PropertyValue Property="ValueListProperty" String="JustCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="JustDescription"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
@@ -2050,7 +2121,6 @@
                                 <PropertyPath>pendingToBeMoved_ac</PropertyPath>
                                 <PropertyPath>productTransfer_ac</PropertyPath>
                                 <PropertyPath>ArrivalDateJ_fc</PropertyPath>
-                                <PropertyPath>CockpitReady_fc</PropertyPath>
                                 <PropertyPath>ConfirmedLoadingDate_fc</PropertyPath>
                                 <PropertyPath>ConfirmedLoadingTime_fc</PropertyPath>
                                 <PropertyPath>FinalFinishDate_fc</PropertyPath>
@@ -2058,7 +2128,6 @@
                                 <PropertyPath>FinalFinishDateNotes_fc</PropertyPath>
                                 <PropertyPath>MaxArrivalDate_fc</PropertyPath>
                                 <PropertyPath>MinArrivalDate_fc</PropertyPath>
-                                <PropertyPath>ProductTransfer_fc</PropertyPath>
                                 <PropertyPath>RequestFinishDate_fc</PropertyPath>
                                 <PropertyPath>RequestFinishDateJ_fc</PropertyPath>
                                 <PropertyPath>TransportCompany_fc</PropertyPath>
@@ -2115,7 +2184,6 @@
                                 <PropertyPath>pendingToBeMoved_ac</PropertyPath>
                                 <PropertyPath>productTransfer_ac</PropertyPath>
                                 <PropertyPath>ArrivalDateJ_fc</PropertyPath>
-                                <PropertyPath>CockpitReady_fc</PropertyPath>
                                 <PropertyPath>ConfirmedLoadingDate_fc</PropertyPath>
                                 <PropertyPath>ConfirmedLoadingTime_fc</PropertyPath>
                                 <PropertyPath>FinalFinishDate_fc</PropertyPath>
@@ -2123,7 +2191,6 @@
                                 <PropertyPath>FinalFinishDateNotes_fc</PropertyPath>
                                 <PropertyPath>MaxArrivalDate_fc</PropertyPath>
                                 <PropertyPath>MinArrivalDate_fc</PropertyPath>
-                                <PropertyPath>ProductTransfer_fc</PropertyPath>
                                 <PropertyPath>RequestFinishDate_fc</PropertyPath>
                                 <PropertyPath>RequestFinishDateJ_fc</PropertyPath>
                                 <PropertyPath>TransportCompany_fc</PropertyPath>

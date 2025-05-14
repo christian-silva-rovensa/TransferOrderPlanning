@@ -242,13 +242,13 @@
                             <Collection>
                                 <Record Type="UI.SelectOptionType">
                                     <PropertyValue Property="PropertyName"
-                                        PropertyPath="DeliveryStatus" />
+                                        PropertyPath="PurchaseOrderItemStatus" />
                                     <PropertyValue Property="Ranges">
                                         <Collection>
                                             <Record Type="UI.SelectionRangeType">
-                                                <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/E"/>
+                                                <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
                                                 <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ" />
-                                                <PropertyValue Property="Low" String="C" />
+                                                <PropertyValue Property="Low" String="OPEN" />
                                            </Record>
                                         </Collection>
                                     </PropertyValue>
@@ -264,13 +264,13 @@
                             <Collection>
                                 <Record Type="UI.SelectOptionType">
                                     <PropertyValue Property="PropertyName"
-                                        PropertyPath="DeliveryStatus" />
+                                        PropertyPath="PurchaseOrderItemStatus" />
                                     <PropertyValue Property="Ranges">
                                         <Collection>
                                             <Record Type="UI.SelectionRangeType">
                                                 <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
                                                 <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ" />
-                                                <PropertyValue Property="Low" String="C" />
+                                                <PropertyValue Property="Low" String="COMPLETED" />
                                            </Record>
                                         </Collection>
                                     </PropertyValue>
@@ -286,14 +286,18 @@
                             <Collection>
                                 <Record Type="UI.SelectOptionType">
                                     <PropertyValue Property="PropertyName"
-                                        PropertyPath="DeliveryStatus" />
+                                        PropertyPath="PurchaseOrderItemStatus" />
                                     <PropertyValue Property="Ranges">
                                         <Collection>
                                             <Record Type="UI.SelectionRangeType">
                                                 <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
-                                                <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/BT" />
-                                                <PropertyValue Property="Low" String="0" />
-                                                <PropertyValue Property="High" String="Z" />
+                                                <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ" />
+                                                <PropertyValue Property="Low" String="OPEN" />
+                                           </Record>
+                                           <Record Type="UI.SelectionRangeType">
+                                                <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+                                                <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ" />
+                                                <PropertyValue Property="Low" String="COMPLETED" />
                                            </Record>
                                         </Collection>
                                     </PropertyValue>
