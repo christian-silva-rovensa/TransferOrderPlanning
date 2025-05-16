@@ -53,13 +53,25 @@
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/to_Item">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/PurchasingDocumentDeletionCode">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/PlanningIsValid">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/FinalFinishDateChanged">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ConfLoadingDateChanged">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/PlanningStatusText">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/LocalLastChangedAt">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/cockpitReady_ac">
-                <Annotation Term="UI.Hidden"/>
-            </Annotations>
-            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/loaded_ac">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/pendingToBeMoved_ac">
@@ -404,7 +416,16 @@
                             <PropertyValue Property="Value" Path="LastChangedAt"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Criticality" Path="ConfLoadingDateChanged"/>
+                            <PropertyValue Property="Value" Path="ConfirmedLoadingDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Criticality" Path="FinalFinishDateChanged"/>
+                            <PropertyValue Property="Value" Path="FinalFinishDate"/>
+                        </Record>
                     </Collection>
+                    <Annotation Term="UI.Criticality" Path="PlanningIsValid"/>
                 </Annotation>
                 <Annotation Term="UI.PresentationVariant">
                     <Record>

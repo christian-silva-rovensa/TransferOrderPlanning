@@ -70,12 +70,14 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="ConfirmedLoadingDate"/>
+                                    <PropertyValue Property="Criticality" Path="ConfLoadingDateChanged"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="ConfirmedLoadingTime"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="FinalFinishDate"/>
+                                    <PropertyValue Property="Criticality" Path="FinalFinishDateChanged"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="FinalFinishDateJ"/>
@@ -168,6 +170,11 @@
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="LastChangedAt"/>
                                     <PropertyValue Property="Label" String="{@i18n>LastChangedAt}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="PlanningStatusText"/>
+                                    <PropertyValue Property="Label" String="{@i18n>status}"/>
+                                    <PropertyValue Property="Criticality" Path="PlanningIsValid"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>

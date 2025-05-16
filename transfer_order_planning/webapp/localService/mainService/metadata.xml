@@ -260,7 +260,6 @@
                     <PropertyRef Name="PurchaseOrderItem"/>
                 </Key>
                 <Property Name="cockpitReady_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="loaded_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="pendingToBeMoved_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="productTransfer_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ArrivalDateJ_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -284,7 +283,7 @@
                 <Property Name="PurchaseOrderItemText" Type="Edm.String" MaxLength="40" sap:label="Short Text" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="OrderQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="PurchaseOrderQuantityUnit" sap:label="Order Quantity" sap:quickinfo="Purchase Order Quantity" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="PurchaseOrderQuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Order Unit" sap:quickinfo="Purchase Order Unit of Measure" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
-                <Property Name="PurchaseOrderItemStatus" Type="Edm.String" MaxLength="9"/>
+                <Property Name="PurchaseOrderItemStatus" Type="Edm.String" MaxLength="9" sap:label="Purchase Order Item Status"/>
                 <Property Name="FirstDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="First Delivery Date" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="RequestFinishDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="RequestFinishDate_fc" sap:label="CCC – Request Finish Date" sap:quickinfo="Request Finish Date"/>
                 <Property Name="ConfirmedLoadingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ConfirmedLoadingDate_fc" sap:label="LOGISTIC – Confirmed Loading Date" sap:quickinfo="Sales Order Planning - Confirmed Loadind Date"/>
@@ -314,7 +313,12 @@
                 <Property Name="ConfirmedLoadingDateNotes" Type="Edm.String" MaxLength="200" sap:label="LOGISTIC - Confirmed Loading Date Notes" sap:quickinfo="Loading Date Notes"/>
                 <Property Name="TransportCompany" Type="Edm.String" MaxLength="100" sap:field-control="TransportCompany_fc" sap:label="LOGISTIC - Transport Company" sap:quickinfo="Transport Company"/>
                 <Property Name="TransportPlate" Type="Edm.String" MaxLength="50" sap:field-control="TransportPlate_fc" sap:label="LOGISTIC - Transport Plate" sap:quickinfo="Transport Plate"/>
+                <Property Name="PurchasingDocumentDeletionCode" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Deletion Indicator" sap:quickinfo="Deletion Indicator in Purchasing Document"/>
                 <Property Name="ChangedOn" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Last Changed on" sap:quickinfo="Purchasing Document Item Change Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PlanningIsValid" Type="Edm.String" MaxLength="1"/>
+                <Property Name="FinalFinishDateChanged" Type="Edm.String" MaxLength="1"/>
+                <Property Name="ConfLoadingDateChanged" Type="Edm.String" MaxLength="1"/>
+                <Property Name="PlanningStatusText" Type="Edm.String" MaxLength="50"/>
                 <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code" sap:value-list="standard"/>
                 <Property Name="PurchasingOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purch. Organization" sap:quickinfo="Purchasing Organization" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
                 <Property Name="PurchasingGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Purchasing Group" sap:creatable="false" sap:updatable="false"/>
@@ -384,6 +388,7 @@
                 <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Creation Date" sap:quickinfo="Purchasing Document Creation Date"/>
                 <Property Name="ChangedOn" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Last Changed on" sap:quickinfo="Purchasing Document Item Change Date"/>
                 <Property Name="IsCompletelyDelivered" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Delivery Completed" sap:quickinfo="&quot;Delivery Completed&quot; Indicator"/>
+                <Property Name="PurchasingDocumentDeletionCode" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Deletion Indicator" sap:quickinfo="Deletion Indicator in Purchasing Document"/>
             </EntityType>
             <EntityType Name="zi_sd_so_plan_justType" sap:label="Sales Order Planning - Justification" sap:value-list="true" sap:content-version="1">
                 <Key>
@@ -613,10 +618,6 @@
                     <End EntitySet="PurchaseOrder" Role="ToRole_assoc_26CD39ACD438BC79F931000DECE66882"/>
                 </AssociationSet>
                 <FunctionImport Name="cockpitReady" ReturnType="cds_zui_mm_transf_order_plan.PlanningType" EntitySet="Planning" m:HttpMethod="POST" sap:action-for="cds_zui_mm_transf_order_plan.PlanningType" sap:applicable-path="cockpitReady_ac">
-                    <Parameter Name="PurchaseOrder" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Purchasing Document"/>
-                    <Parameter Name="PurchaseOrderItem" Type="Edm.String" Mode="In" MaxLength="5" sap:label="Item"/>
-                </FunctionImport>
-                <FunctionImport Name="loaded" ReturnType="cds_zui_mm_transf_order_plan.PlanningType" EntitySet="Planning" m:HttpMethod="POST" sap:action-for="cds_zui_mm_transf_order_plan.PlanningType" sap:applicable-path="loaded_ac">
                     <Parameter Name="PurchaseOrder" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Purchasing Document"/>
                     <Parameter Name="PurchaseOrderItem" Type="Edm.String" Mode="In" MaxLength="5" sap:label="Item"/>
                 </FunctionImport>
@@ -2117,7 +2118,6 @@
                         <PropertyValue Property="NonFilterableProperties">
                             <Collection>
                                 <PropertyPath>cockpitReady_ac</PropertyPath>
-                                <PropertyPath>loaded_ac</PropertyPath>
                                 <PropertyPath>pendingToBeMoved_ac</PropertyPath>
                                 <PropertyPath>productTransfer_ac</PropertyPath>
                                 <PropertyPath>ArrivalDateJ_fc</PropertyPath>
@@ -2180,7 +2180,6 @@
                         <PropertyValue Property="NonSortableProperties">
                             <Collection>
                                 <PropertyPath>cockpitReady_ac</PropertyPath>
-                                <PropertyPath>loaded_ac</PropertyPath>
                                 <PropertyPath>pendingToBeMoved_ac</PropertyPath>
                                 <PropertyPath>productTransfer_ac</PropertyPath>
                                 <PropertyPath>ArrivalDateJ_fc</PropertyPath>
