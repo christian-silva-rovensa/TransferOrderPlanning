@@ -97,19 +97,21 @@ sap.ui.define([
                 let oData = { PurchaseOrder: purchaseOrderItem[0], 
                               PurchaseOrderItem: purchaseOrderItem[1],
                               RequestFinishDate: purchaseOrderItem[7],
-                              ConfirmedLoadingDate: purchaseOrderItem[8],
-                              ConfirmedLoadingTime: purchaseOrderItem[9],
-                              FinalFinishDate: purchaseOrderItem[10],
-                              VesselEtd: purchaseOrderItem[11],
-                              MinArrivalDate: purchaseOrderItem[12],
-                              MaxArrivalDate: purchaseOrderItem[13],
-                              JustArrivalDate: purchaseOrderItem[14],
-                              JustRequestFinishDate: purchaseOrderItem[15],
-                              FinalFinishDateNotes: purchaseOrderItem[16],
-                              JustFinalFinishDate: purchaseOrderItem[17],
-                              ConfirmedLoadingDateNotes: purchaseOrderItem[18],
-                              TransportCompany: purchaseOrderItem[19],
-                              TransportPlate: purchaseOrderItem[20]
+                              JustRequestFinishDate: purchaseOrderItem[8],
+                              ExpLoadingDate: purchaseOrderItem[9],
+                              ConfirmedLoadingDate: purchaseOrderItem[10],
+                              ConfirmedLoadingTime: purchaseOrderItem[11],
+                              ConfirmedLoadingDateNotes: purchaseOrderItem[12],
+                              FinalFinishDate: purchaseOrderItem[13],
+                              JustFinalFinishDate: purchaseOrderItem[14],
+                              FinalFinishDateNotes: purchaseOrderItem[15],
+                              FinalDelivery: purchaseOrderItem[16],
+                              MinArrivalDate: purchaseOrderItem[17],
+                              MaxArrivalDate: purchaseOrderItem[18],
+                              JustArrivalDate: purchaseOrderItem[19],
+                              TransportCompany: purchaseOrderItem[20],
+                              TransportPlate: purchaseOrderItem[21],
+                              Location: purchaseOrderItem[22]
                             };
 
                 aData.push(oData);
@@ -119,62 +121,6 @@ sap.ui.define([
             var aPurchaseOrdersItems = [];
 
             aData.forEach(entity => {
-
-                /*
-                if(entity.ExpectedAvailDate !== undefined){
-                    entity.ExpectedAvailDate = moment(entity.ExpectedAvailDate).format('YYYY-MM-DDTHH:MM:SS');
-                }
-                
-                if(entity.LoadingTime !== undefined){
-                    let str = entity.LoadingTime.toString();
-                    let matches = str.replace(/[^0-9:]/g, "");
-                    const myArr = matches.split(":");
-                    if(myArr.length === 3){
-                        entity.LoadingTime = "PT"+myArr[0]+"H"+myArr[1]+"M"+myArr[2]+"S";
-                    }else if(myArr.length === 2){
-                        entity.LoadingTime = "PT"+myArr[0]+"H"+myArr[1]+"M00S";
-                    }else{
-                        entity.LoadingTime = "PT00H00M00S";
-                    }
-                }
-
-                if(entity.VesselETD !== undefined){
-                    entity.VesselETD = moment(entity.VesselETD).format('YYYY-MM-DDTHH:MM:SS');
-                }
-
-                if(entity.MinDeliveryDate !== undefined){
-                    entity.MinDeliveryDate = moment(entity.MinDeliveryDate).format('YYYY-MM-DDTHH:MM:SS');
-                }
-
-                if(entity.MaxDeliveryDate !== undefined){
-                    entity.MaxDeliveryDate = moment(entity.MaxDeliveryDate).format('YYYY-MM-DDTHH:MM:SS');
-                }
-                
-
-                var oSalesOrderItem = { SalesOrder: entity.SalesOrder, 
-                                        SalesOrderItem: entity.SalesOrderItem, 
-                                        ExpectedAvailDate: entity.ExpectedAvailDate,
-                                        StockAvailDate: entity.StockAvailDate,
-                                        ConfirmedLoadingDate: entity.ConfirmedLoadingDate,
-                                        LoadingTime: entity.LoadingTime,
-                                        LoadingDate: entity.LoadingDate,
-                                        VesselETD: entity.VesselETD,
-                                        FinalDelivery: entity.FinalDelivery,
-                                        MinDeliveryDate: entity.MinDeliveryDate,
-                                        MaxDeliveryDate: entity.MaxDeliveryDate,
-                                        Location: entity.Location,
-                                        JustExpectedAvailDate: that._addLeadingZero(entity.JustExpectedAvailDate),
-                                        JustStockAvailDate: that._addLeadingZero(entity.JustStockAvailDate),
-                                        JustLoadingDate: that._addLeadingZero(entity.JustLoadingDate),
-                                        JustMinDeliveryDate: that._addLeadingZero(entity.JustMinDeliveryDate),
-                                        JustMaxDeliveryDate: that._addLeadingZero(entity.JustMaxDeliveryDate),
-                                        StockAvailDateNotes: entity.StockAvailDateNotes,
-                                        LoadingDateNotes: entity.LoadingDateNotes
-                                     };
-                
-                aSalesOrderItems.push(oSalesOrderItem);
-
-                */
 
                 if(entity.RequestFinishDate !== undefined){
                     entity.RequestFinishDate = moment(entity.RequestFinishDate).format('YYYY-MM-DDTHH:MM:SS');
@@ -197,12 +143,16 @@ sap.ui.define([
                     }
                 }
 
+                if(entity.FinalDelivery !== undefined){
+                    entity.FinalDelivery = moment(entity.FinalDelivery).format('YYYY-MM-DDTHH:MM:SS');
+                }
+
                 if(entity.FinalFinishDate !== undefined){
                     entity.FinalFinishDate = moment(entity.FinalFinishDate).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
-                if(entity.VesselEtd !== undefined){
-                    entity.VesselEtd = moment(entity.VesselEtd).format('YYYY-MM-DDTHH:MM:SS');
+                if(entity.ExpLoadingDate !== undefined){
+                    entity.ExpLoadingDate = moment(entity.ExpLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
                 if(entity.MinArrivalDate !== undefined){
@@ -216,19 +166,21 @@ sap.ui.define([
                 var oPurchaseOrderItem = { PurchaseOrder: entity.PurchaseOrder, 
                                            PurchaseOrderItem: entity.PurchaseOrderItem,
                                            RequestFinishDate: entity.RequestFinishDate,
+                                           RequestFinishDateJ: that._addLeadingZero(entity.JustRequestFinishDate),
+                                           ExpLoadingDate: entity.ExpLoadingDate,
                                            ConfirmedLoadingDate: entity.ConfirmedLoadingDate,
                                            ConfirmedLoadingTime: entity.ConfirmedLoadingTime,
+                                           ConfirmedLoadingDateNotes: entity.ConfirmedLoadingDateNotes,
                                            FinalFinishDate: entity.FinalFinishDate,
-                                           VesselEtd: entity.VesselEtd,
+                                           FinalFinishDateJ: that._addLeadingZero(entity.JustFinalFinishDate),
+                                           FinalFinishDateNotes: entity.FinalFinishDateNotes,
+                                           FinalDelivery: entity.FinalDelivery,
                                            MinArrivalDate: entity.MinArrivalDate,
                                            MaxArrivalDate: entity.MaxArrivalDate,
-                                           JustArrivalDate: entity.JustArrivalDate,
-                                           JustRequestFinishDate: entity.JustRequestFinishDate,
-                                           FinalFinishDateNotes: entity.FinalFinishDateNotes,
-                                           JustFinalFinishDate: entity.JustFinalFinishDate,
-                                           ConfirmedLoadingDateNotes: entity.ConfirmedLoadingDateNotes,
+                                           ArrivalDateJ: that._addLeadingZero(entity.JustArrivalDate),
                                            TransportCompany: entity.TransportCompany,
-                                           TransportPlate: entity.TransportPlate
+                                           TransportPlate: entity.TransportPlate,
+                                           Location: entity.Location
                                         };
                 
                 aPurchaseOrdersItems.push(oPurchaseOrderItem);
@@ -317,19 +269,21 @@ sap.ui.define([
                                  PurchaseOrderQuantityUnit: element.getProperty("PurchaseOrderQuantityUnit"),
                                  FirstDeliveryDate: element.getProperty("FirstDeliveryDate"),
                                  RequestFinishDate: element.getProperty("RequestFinishDate"),
+                                 RequestFinishDateJ: element.getProperty("RequestFinishDateJ"),
+                                 ExpLoadingDate: element.getProperty("ExpLoadingDate"),
                                  ConfirmedLoadingDate: element.getProperty("ConfirmedLoadingDate"),
                                  ConfirmedLoadingTime: element.getProperty("ConfirmedLoadingTime"),
+                                 ConfirmedLoadingDateNotes: element.getProperty("ConfirmedLoadingDateNotes"),
                                  FinalFinishDate: element.getProperty("FinalFinishDate"),
-                                 VesselEtd: element.getProperty("VesselETD"),
+                                 FinalFinishDateJ: element.getProperty("FinalFinishDateJ"),
+                                 FinalFinishDateNotes: element.getProperty("FinalFinishDateNotes"),
+                                 FinalDelivery: element.getProperty("FinalDelivery"),
                                  MinArrivalDate: element.getProperty("MinArrivalDate"),
                                  MaxArrivalDate: element.getProperty("MaxArrivalDate"),
                                  ArrivalDateJ: element.getProperty("ArrivalDateJ"),
-                                 RequestFinishDateJ: element.getProperty("RequestFinishDateJ"),
-                                 FinalFinishDateNotes: element.getProperty("FinalFinishDateNotes"),
-                                 FinalFinishDateJ: element.getProperty("FinalFinishDateJ"),
-                                 ConfirmedLoadingDateNotes: element.getProperty("ConfirmedLoadingDateNotes"),
                                  TransportCompany: element.getProperty("TransportCompany"),
-                                 TransportPlate: element.getProperty("TransportPlate")
+                                 TransportPlate: element.getProperty("TransportPlate"),
+                                 Location: element.getProperty("Location")
                             });
 
                 });
@@ -345,19 +299,21 @@ sap.ui.define([
                              PurchaseOrderQuantityUnit: "",
                              FirstDeliveryDate: "31/12/9999",
                              RequestFinishDate: "31/12/9999",
+                             RequestFinishDateJ: "",
+                             ExpLoadingDate: "31/12/9999",
                              ConfirmedLoadingDate: "31/12/9999",
                              ConfirmedLoadingTime: "23:59:59",
+                             ConfirmedLoadingDateNotes: "",
                              FinalFinishDate: "31/12/9999",
-                             VesselEtd: "31/12/9999",
+                             FinalFinishDateJ: "",
+                             FinalFinishDateNotes: "",
+                             FinalDelivery: "31/12/9999",
                              MinArrivalDate: "31/12/9999",
                              MaxArrivalDate: "31/12/9999",
-                             JustArrivalDate: "",
-                             JustRequestFinishDate: "",
-                             FinalFinishDateNotes: "",
-                             JustFinalFinishDate: "",
-                             ConfirmedLoadingDateNotes: "",
+                             ArrivalDateJ: "",
                              TransportCompany: "",
-                             TransportPlate: ""
+                             TransportPlate: "",
+                             Location: ""
                         });
             }
 

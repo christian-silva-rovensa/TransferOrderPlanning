@@ -35,7 +35,13 @@
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/DeliveryStatusDescription">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/FinalFinishDateNotes">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/FinalFinishDateJD">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/PlanningStatusText">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/CreatedBy">
@@ -65,13 +71,13 @@
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ConfLoadingDateChanged">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
-            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/PlanningStatusText">
-                <Annotation Term="UI.Hidden"/>
-            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/LocalLastChangedAt">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/cockpitReady_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/loaded_ac">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/pendingToBeMoved_ac">
@@ -89,6 +95,9 @@
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ConfirmedLoadingTime_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ExpLoadingDate_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/FinalFinishDate_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
@@ -96,6 +105,9 @@
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/FinalFinishDateNotes_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/Location_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/MaxArrivalDate_fc">
@@ -114,9 +126,6 @@
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/TransportPlate_fc">
-                <Annotation Term="UI.Hidden"/>
-            </Annotations>
-            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/VesselEtd_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/Update_mc">
@@ -166,10 +175,16 @@
                             <PropertyValue Property="Value" Path="OrderQuantity"/>
                         </Record>
                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Quantity"/>
+                        </Record>
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="FirstDeliveryDate"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="RequestFinishDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ExpLoadingDate"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="ConfirmedLoadingDate"/>
@@ -179,9 +194,6 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="FinalFinishDate"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="VesselEtd"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="MinArrivalDate"/>
@@ -194,6 +206,9 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="ProductTransfer"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Location"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="CreationDate"/>
@@ -270,6 +285,11 @@
                             <PropertyValue Property="Value" Path="PurchaseOrder"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Loaded"/>
+                            <PropertyValue Property="Action" String="cds_zui_mm_transf_order_plan.cds_zui_mm_transf_order_plan_Entities/loaded"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                        </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="PurchaseOrderItem"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
@@ -297,11 +317,19 @@
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Quantity"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="FirstDeliveryDate"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="RequestFinishDate"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ExpLoadingDate"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                         <Record Type="UI.DataField">
@@ -314,10 +342,6 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="FinalFinishDate"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="VesselEtd"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                         <Record Type="UI.DataField">
@@ -335,6 +359,10 @@
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="ProductTransfer"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Location"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="CreationDate"/>

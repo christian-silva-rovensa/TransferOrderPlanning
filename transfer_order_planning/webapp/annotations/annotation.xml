@@ -28,7 +28,13 @@
                                     <PropertyValue Property="Value" Path="FinalFinishDate"/>
                                 </Record>
                                 <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FinalFinishDateJ"/>
+                                </Record>
+                                <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="FinalFinishDateNotes"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ExpLoadingDate"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="ConfirmedLoadingDate"/>
@@ -37,7 +43,7 @@
                                     <PropertyValue Property="Value" Path="ConfirmedLoadingDateNotes"/>
                                 </Record>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="VesselEtd"/>
+                                    <PropertyValue Property="Value" Path="FinalDelivery"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="MinArrivalDate"/>
@@ -54,6 +60,9 @@
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="TransportPlate"/>
                                 </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Location"/>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
@@ -69,11 +78,17 @@
                                     <PropertyValue Property="Value" Path="RequestFinishDateJ"/>
                                 </Record>
                                 <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ExpLoadingDate"/>
+                                </Record>
+                                <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="ConfirmedLoadingDate"/>
                                     <PropertyValue Property="Criticality" Path="ConfLoadingDateChanged"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="ConfirmedLoadingTime"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ConfirmedLoadingDateNotes"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="FinalFinishDate"/>
@@ -83,7 +98,10 @@
                                     <PropertyValue Property="Value" Path="FinalFinishDateJ"/>
                                 </Record>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="VesselEtd"/>
+                                    <PropertyValue Property="Value" Path="FinalFinishDateNotes"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FinalDelivery"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="MinArrivalDate"/>
@@ -99,6 +117,15 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="ProductTransfer"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TransportCompany"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TransportPlate"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Location"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
@@ -150,6 +177,9 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="OrderQuantity"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Quantity"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="Plant"/>
