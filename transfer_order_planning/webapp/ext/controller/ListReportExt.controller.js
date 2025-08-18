@@ -94,24 +94,52 @@ sap.ui.define([
             //slice(1) is used here to skip the header
             raw_data.slice(1).forEach(purchaseOrderItem => {
 
+                //Sample data
+                oData.push({ PurchaseOrder: "9999999999", 
+                             PurchaseOrderItem: "10", 
+                             Material: "",
+                             MaterialName: "",
+                             OrderQuantity: "0",
+                             PurchaseOrderQuantityUnit: "",
+                             PlantName: "",
+                             RequestFinishDate: "31/12/9999",
+                             JustRequestFinishDate: "",
+                             FinalFinishDate: "31/12/9999",
+                             JustFinalFinishDate: "",
+                             FinalFinishDateNotes: "",
+                             ConfirmedLoadingDate: "31/12/9999",
+                             ConfirmedLoadingTime: "23:59:59",
+                             ConfirmedLoadingDateNotes: "",
+                             ExpectedLoadingDate: "31/12/9999",
+                             JustExpectedLoadingDate: "",
+                             FinalDelivery: "31/12/9999",
+                             MinArrivalDate: "31/12/9999",
+                             MaxArrivalDate: "31/12/9999",
+                             JustMaxArrivalDate: "",
+                             TransportCompany: "",
+                             TransportPlate: "",
+                             Location: ""
+                        });
+
                 let oData = { PurchaseOrder: purchaseOrderItem[0], 
                               PurchaseOrderItem: purchaseOrderItem[1],
                               RequestFinishDate: purchaseOrderItem[7],
                               JustRequestFinishDate: purchaseOrderItem[8],
-                              ExpLoadingDate: purchaseOrderItem[9],
-                              ConfirmedLoadingDate: purchaseOrderItem[10],
-                              ConfirmedLoadingTime: purchaseOrderItem[11],
-                              ConfirmedLoadingDateNotes: purchaseOrderItem[12],
-                              FinalFinishDate: purchaseOrderItem[13],
-                              JustFinalFinishDate: purchaseOrderItem[14],
-                              FinalFinishDateNotes: purchaseOrderItem[15],
-                              FinalDelivery: purchaseOrderItem[16],
-                              MinArrivalDate: purchaseOrderItem[17],
-                              MaxArrivalDate: purchaseOrderItem[18],
-                              JustArrivalDate: purchaseOrderItem[19],
-                              TransportCompany: purchaseOrderItem[20],
-                              TransportPlate: purchaseOrderItem[21],
-                              Location: purchaseOrderItem[22]
+                              FinalFinishDate: purchaseOrderItem[9],
+                              JustFinalFinishDate: purchaseOrderItem[10],
+                              FinalFinishDateNotes: purchaseOrderItem[11],
+                              ConfirmedLoadingDate: purchaseOrderItem[12],
+                              ConfirmedLoadingTime: purchaseOrderItem[13],
+                              ConfirmedLoadingDateNotes: purchaseOrderItem[14],
+                              ExpectedLoadingDate: purchaseOrderItem[15],
+                              JustExpectedLoadingDate: purchaseOrderItem[16],
+                              FinalDelivery: purchaseOrderItem[17],
+                              MinArrivalDate: purchaseOrderItem[18],
+                              MaxArrivalDate: purchaseOrderItem[19],
+                              JustArrivalDate: purchaseOrderItem[20],
+                              TransportCompany: purchaseOrderItem[21],
+                              TransportPlate: purchaseOrderItem[22],
+                              Location: purchaseOrderItem[23]
                             };
 
                 aData.push(oData);
@@ -143,6 +171,10 @@ sap.ui.define([
                     }
                 }
 
+                if(entity.RequestFinishDate !== undefined){
+                    entity.RequestFinishDate = moment(entity.RequestFinishDate).format('YYYY-MM-DDTHH:MM:SS');
+                }
+
                 if(entity.FinalDelivery !== undefined){
                     entity.FinalDelivery = moment(entity.FinalDelivery).format('YYYY-MM-DDTHH:MM:SS');
                 }
@@ -151,8 +183,12 @@ sap.ui.define([
                     entity.FinalFinishDate = moment(entity.FinalFinishDate).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
-                if(entity.ExpLoadingDate !== undefined){
-                    entity.ExpLoadingDate = moment(entity.ExpLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                if(entity.ConfirmedLoadingDate !== undefined){
+                    entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                }
+                
+                if(entity.ExpectedLoadingDate !== undefined){
+                    entity.ExpectedLoadingDate = moment(entity.ExpectedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
                 if(entity.MinArrivalDate !== undefined){
@@ -167,13 +203,13 @@ sap.ui.define([
                                            PurchaseOrderItem: entity.PurchaseOrderItem,
                                            RequestFinishDate: entity.RequestFinishDate,
                                            RequestFinishDateJ: that._addLeadingZero(entity.JustRequestFinishDate),
-                                           ExpLoadingDate: entity.ExpLoadingDate,
-                                           ConfirmedLoadingDate: entity.ConfirmedLoadingDate,
-                                           ConfirmedLoadingTime: entity.ConfirmedLoadingTime,
-                                           ConfirmedLoadingDateNotes: entity.ConfirmedLoadingDateNotes,
                                            FinalFinishDate: entity.FinalFinishDate,
                                            FinalFinishDateJ: that._addLeadingZero(entity.JustFinalFinishDate),
                                            FinalFinishDateNotes: entity.FinalFinishDateNotes,
+                                           ConfirmedLoadingDate: entity.ConfirmedLoadingDate,
+                                           ConfirmedLoadingTime: entity.ConfirmedLoadingTime,
+                                           ConfirmedLoadingDateNotes: entity.ConfirmedLoadingDateNotes,
+                                           ExpLoadingDate: entity.ExpectedLoadingDate,                                          
                                            FinalDelivery: entity.FinalDelivery,
                                            MinArrivalDate: entity.MinArrivalDate,
                                            MaxArrivalDate: entity.MaxArrivalDate,
@@ -267,20 +303,21 @@ sap.ui.define([
                                  MaterialName: element.getProperty("MaterialName"),
                                  OrderQuantity: element.getProperty("OrderQuantity"),
                                  PurchaseOrderQuantityUnit: element.getProperty("PurchaseOrderQuantityUnit"),
-                                 FirstDeliveryDate: element.getProperty("FirstDeliveryDate"),
+                                 PlantName: element.getProperty("PlantName"),
                                  RequestFinishDate: element.getProperty("RequestFinishDate"),
-                                 RequestFinishDateJ: element.getProperty("RequestFinishDateJ"),
-                                 ExpLoadingDate: element.getProperty("ExpLoadingDate"),
+                                 JustRequestFinishDate: element.getProperty("RequestFinishDateJ"),
+                                 FinalFinishDate: element.getProperty("FinalFinishDate"),
+                                 JustFinalFinishDate: element.getProperty("FinalFinishDateJ"),
+                                 FinalFinishDateNotes: element.getProperty("FinalFinishDateNotes"),
                                  ConfirmedLoadingDate: element.getProperty("ConfirmedLoadingDate"),
                                  ConfirmedLoadingTime: element.getProperty("ConfirmedLoadingTime"),
                                  ConfirmedLoadingDateNotes: element.getProperty("ConfirmedLoadingDateNotes"),
-                                 FinalFinishDate: element.getProperty("FinalFinishDate"),
-                                 FinalFinishDateJ: element.getProperty("FinalFinishDateJ"),
-                                 FinalFinishDateNotes: element.getProperty("FinalFinishDateNotes"),
+                                 ExpectedLoadingDate: element.getProperty("ExpLoadingDate"),
+                                 JustExpectedLoadingDate: element.getProperty("ExpLoadingDateJ"),
                                  FinalDelivery: element.getProperty("FinalDelivery"),
                                  MinArrivalDate: element.getProperty("MinArrivalDate"),
                                  MaxArrivalDate: element.getProperty("MaxArrivalDate"),
-                                 ArrivalDateJ: element.getProperty("ArrivalDateJ"),
+                                 JustMaxArrivalDate: element.getProperty("ArrivalDateJ"),
                                  TransportCompany: element.getProperty("TransportCompany"),
                                  TransportPlate: element.getProperty("TransportPlate"),
                                  Location: element.getProperty("Location")
@@ -297,24 +334,26 @@ sap.ui.define([
                              MaterialName: "",
                              OrderQuantity: "0",
                              PurchaseOrderQuantityUnit: "",
-                             FirstDeliveryDate: "31/12/9999",
+                             PlantName: "",
                              RequestFinishDate: "31/12/9999",
-                             RequestFinishDateJ: "",
-                             ExpLoadingDate: "31/12/9999",
+                             JustRequestFinishDate: "",
+                             FinalFinishDate: "31/12/9999",
+                             JustFinalFinishDate: "",
+                             FinalFinishDateNotes: "",
                              ConfirmedLoadingDate: "31/12/9999",
                              ConfirmedLoadingTime: "23:59:59",
                              ConfirmedLoadingDateNotes: "",
-                             FinalFinishDate: "31/12/9999",
-                             FinalFinishDateJ: "",
-                             FinalFinishDateNotes: "",
+                             ExpectedLoadingDate: "31/12/9999",
+                             JustExpectedLoadingDate: "",
                              FinalDelivery: "31/12/9999",
                              MinArrivalDate: "31/12/9999",
                              MaxArrivalDate: "31/12/9999",
-                             ArrivalDateJ: "",
+                             JustMaxArrivalDate: "",
                              TransportCompany: "",
                              TransportPlate: "",
                              Location: ""
                         });
+      
             }
 
             const worksheet = XLSX.utils.json_to_sheet(oData);
