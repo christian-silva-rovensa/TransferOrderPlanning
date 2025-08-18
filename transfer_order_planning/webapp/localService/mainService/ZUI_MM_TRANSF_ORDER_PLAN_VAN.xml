@@ -32,6 +32,9 @@
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/RequestFinishDateJD">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ExpLoadingDateJD">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/DeliveryStatusDescription">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
@@ -96,6 +99,9 @@
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ExpLoadingDate_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ExpLoadingDateJ_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/FinalFinishDate_fc">

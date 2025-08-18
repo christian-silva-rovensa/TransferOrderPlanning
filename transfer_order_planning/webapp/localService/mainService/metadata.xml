@@ -332,6 +332,7 @@
                 <Property Name="ConfirmedLoadingDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ConfirmedLoadingTime_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ExpLoadingDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ExpLoadingDateJ_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FinalFinishDate_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FinalFinishDateJ_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FinalFinishDateNotes_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -350,6 +351,8 @@
                 <Property Name="PurchaseOrderItemText" Type="Edm.String" MaxLength="40" sap:label="Short Text" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="OrderQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="PurchaseOrderQuantityUnit" sap:label="Order Quantity" sap:quickinfo="Purchase Order Quantity" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="PurchaseOrderQuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Order Unit" sap:quickinfo="Purchase Order Unit of Measure" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="ItemGrossWeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="ItemWeightUnit" sap:label="Gross Weight"/>
+                <Property Name="ItemWeightUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Weight" sap:semantics="unit-of-measure"/>
                 <Property Name="PurchaseOrderItemStatus" Type="Edm.String" MaxLength="9" sap:label="Purchase Order Item Status"/>
                 <Property Name="Quantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="PurchaseOrderQuantityUnit" sap:label="Quantity GR" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="FirstDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="First Delivery Date" sap:creatable="false" sap:updatable="false"/>
@@ -368,6 +371,8 @@
                 <Property Name="ArrivalDateJD" Type="Edm.String" MaxLength="50" sap:label="Just. Max. Arrival Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
                 <Property Name="RequestFinishDateJ" Type="Edm.String" MaxLength="2" sap:field-control="RequestFinishDateJ_fc" sap:label="CCC - Just. Request Finish Date" sap:quickinfo="Justification of change - Request Finish Date" sap:value-list="standard"/>
                 <Property Name="RequestFinishDateJD" Type="Edm.String" MaxLength="50" sap:label="Just. Request Finish Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
+                <Property Name="ExpLoadingDateJ" Type="Edm.String" MaxLength="2" sap:field-control="ExpLoadingDateJ_fc" sap:label="LCC-CCC Just Exp. Loading/Invoicing Date" sap:quickinfo="Justification of change - Expected Loading Date" sap:value-list="standard"/>
+                <Property Name="ExpLoadingDateJD" Type="Edm.String" MaxLength="50" sap:label="Just Exp. Loading/Invoicing Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
                 <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
                 <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name"/>
                 <Property Name="CommittedDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Committed Delivery Date" sap:creatable="false" sap:updatable="false"/>
@@ -463,6 +468,8 @@
                 <Property Name="PurchaseOrderItemText" Type="Edm.String" MaxLength="40" sap:label="Short Text"/>
                 <Property Name="OrderQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="PurchaseOrderQuantityUnit" sap:label="Order Quantity" sap:quickinfo="Purchase Order Quantity"/>
                 <Property Name="PurchaseOrderQuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Order Unit" sap:quickinfo="Purchase Order Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="ItemGrossWeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="ItemWeightUnit" sap:label="Gross Weight"/>
+                <Property Name="ItemWeightUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Weight" sap:semantics="unit-of-measure"/>
                 <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
                 <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name"/>
                 <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Creation Date" sap:quickinfo="Purchasing Document Creation Date"/>
@@ -1396,6 +1403,26 @@
                     </Record>
                 </Annotation>
             </Annotations>
+            <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/ExpLoadingDateJ" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="LCC-CCC Just Exp. Loading/Invoicing Date"/>
+                        <PropertyValue Property="CollectionPath" String="zi_sd_so_plan_just"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExpLoadingDateJ"/>
+                                    <PropertyValue Property="ValueListProperty" String="JustCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="JustDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
             <Annotations Target="cds_zui_mm_transf_order_plan.PlanningType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ValueList">
                     <Record>
@@ -1695,6 +1722,7 @@
                                 <PropertyPath>ConfirmedLoadingDate_fc</PropertyPath>
                                 <PropertyPath>ConfirmedLoadingTime_fc</PropertyPath>
                                 <PropertyPath>ExpLoadingDate_fc</PropertyPath>
+                                <PropertyPath>ExpLoadingDateJ_fc</PropertyPath>
                                 <PropertyPath>FinalFinishDate_fc</PropertyPath>
                                 <PropertyPath>FinalFinishDateJ_fc</PropertyPath>
                                 <PropertyPath>FinalFinishDateNotes_fc</PropertyPath>
@@ -1759,6 +1787,7 @@
                                 <PropertyPath>ConfirmedLoadingDate_fc</PropertyPath>
                                 <PropertyPath>ConfirmedLoadingTime_fc</PropertyPath>
                                 <PropertyPath>ExpLoadingDate_fc</PropertyPath>
+                                <PropertyPath>ExpLoadingDateJ_fc</PropertyPath>
                                 <PropertyPath>FinalFinishDate_fc</PropertyPath>
                                 <PropertyPath>FinalFinishDateJ_fc</PropertyPath>
                                 <PropertyPath>FinalFinishDateNotes_fc</PropertyPath>

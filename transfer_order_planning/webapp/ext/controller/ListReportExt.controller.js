@@ -94,33 +94,6 @@ sap.ui.define([
             //slice(1) is used here to skip the header
             raw_data.slice(1).forEach(purchaseOrderItem => {
 
-                //Sample data
-                oData.push({ PurchaseOrder: "9999999999", 
-                             PurchaseOrderItem: "10", 
-                             Material: "",
-                             MaterialName: "",
-                             OrderQuantity: "0",
-                             PurchaseOrderQuantityUnit: "",
-                             PlantName: "",
-                             RequestFinishDate: "31/12/9999",
-                             JustRequestFinishDate: "",
-                             FinalFinishDate: "31/12/9999",
-                             JustFinalFinishDate: "",
-                             FinalFinishDateNotes: "",
-                             ConfirmedLoadingDate: "31/12/9999",
-                             ConfirmedLoadingTime: "23:59:59",
-                             ConfirmedLoadingDateNotes: "",
-                             ExpectedLoadingDate: "31/12/9999",
-                             JustExpectedLoadingDate: "",
-                             FinalDelivery: "31/12/9999",
-                             MinArrivalDate: "31/12/9999",
-                             MaxArrivalDate: "31/12/9999",
-                             JustMaxArrivalDate: "",
-                             TransportCompany: "",
-                             TransportPlate: "",
-                             Location: ""
-                        });
-
                 let oData = { PurchaseOrder: purchaseOrderItem[0], 
                               PurchaseOrderItem: purchaseOrderItem[1],
                               RequestFinishDate: purchaseOrderItem[7],
@@ -209,7 +182,8 @@ sap.ui.define([
                                            ConfirmedLoadingDate: entity.ConfirmedLoadingDate,
                                            ConfirmedLoadingTime: entity.ConfirmedLoadingTime,
                                            ConfirmedLoadingDateNotes: entity.ConfirmedLoadingDateNotes,
-                                           ExpLoadingDate: entity.ExpectedLoadingDate,                                          
+                                           ExpLoadingDate: entity.ExpectedLoadingDate,     
+                                           ExpLoadingDateJ: that._addLeadingZero(entity.JustExpectedLoadingDate),                                      
                                            FinalDelivery: entity.FinalDelivery,
                                            MinArrivalDate: entity.MinArrivalDate,
                                            MaxArrivalDate: entity.MaxArrivalDate,
@@ -291,13 +265,19 @@ sap.ui.define([
 
             let aContexts = this.extensionAPI.getSelectedContexts();
 
-            var oData = [];
+            var aData = [];
 
             if (aContexts.length > 0) {
 
                 aContexts.forEach(element => {
-                    
-                    oData.push({ PurchaseOrder: element.getProperty("PurchaseOrder"), 
+
+                    let oConfirmedLoadingTime = element.getProperty("ConfirmedLoadingTime");
+
+                    if (oConfirmedLoadingTime.ms !== undefined) {
+                        oConfirmedLoadingTime = this._msToTime(oConfirmedLoadingTime.ms);
+                    }
+
+                    aData.push({ PurchaseOrder: element.getProperty("PurchaseOrder"), 
                                  PurchaseOrderItem: element.getProperty("PurchaseOrderItem"), 
                                  Material: element.getProperty("Material"),
                                  MaterialName: element.getProperty("MaterialName"),
@@ -310,7 +290,7 @@ sap.ui.define([
                                  JustFinalFinishDate: element.getProperty("FinalFinishDateJ"),
                                  FinalFinishDateNotes: element.getProperty("FinalFinishDateNotes"),
                                  ConfirmedLoadingDate: element.getProperty("ConfirmedLoadingDate"),
-                                 ConfirmedLoadingTime: element.getProperty("ConfirmedLoadingTime"),
+                                 ConfirmedLoadingTime: oConfirmedLoadingTime,
                                  ConfirmedLoadingDateNotes: element.getProperty("ConfirmedLoadingDateNotes"),
                                  ExpectedLoadingDate: element.getProperty("ExpLoadingDate"),
                                  JustExpectedLoadingDate: element.getProperty("ExpLoadingDateJ"),
@@ -328,7 +308,7 @@ sap.ui.define([
             }else{
                 
                 //Sample data
-                oData.push({ PurchaseOrder: "9999999999", 
+                aData.push({ PurchaseOrder: "9999999999", 
                              PurchaseOrderItem: "10", 
                              Material: "",
                              MaterialName: "",
@@ -356,7 +336,7 @@ sap.ui.define([
       
             }
 
-            const worksheet = XLSX.utils.json_to_sheet(oData);
+            const worksheet = XLSX.utils.json_to_sheet(aData);
 
             const workbook = XLSX.utils.book_new();
             
@@ -375,6 +355,15 @@ sap.ui.define([
             
             XLSX.writeFile(workbook, "PlanningTemplate.xlsx", { compression: true });
 
+        },
+
+        _msToTime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
         },
 
         _addLeadingZero: function(sValue) {
