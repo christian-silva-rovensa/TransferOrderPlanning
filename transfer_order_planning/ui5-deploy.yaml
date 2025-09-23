@@ -15,12 +15,14 @@ builder:
       configuration:
         ignoreCertError: true # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         target:
-          url: https://srvsapdapp.agrobus.net/
-          client: '100'
+          url: http://hsd:443
+          client: "100"
+          destination: HSD
+          authenticationType: BasicAuthentication
         app:
           name: ZUI5_MM_TO_PLAN
           description: SAP Fiori - Transfer Order Planning
           package: ZMM001
-          transport: HSDK971186
+          transport: HSDK971630
         exclude:
           - /test/

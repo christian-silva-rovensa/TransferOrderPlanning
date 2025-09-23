@@ -30,7 +30,10 @@ server:
         ignoreCertError: true # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
           - path: /sap
-            url: https://srvsapdapp.agrobus.net
+            url: http://hsd:443
+            client: "100"
+            destination: HSD
+            authenticationType: BasicAuthentication
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

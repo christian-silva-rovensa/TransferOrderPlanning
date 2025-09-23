@@ -115,7 +115,9 @@ sap.ui.define([
                               Location: purchaseOrderItem[23]
                             };
 
-                aData.push(oData);
+                if(oData.PurchaseOrder !== undefined) {
+                    aData.push(oData);
+                }
 
             });
 
@@ -199,6 +201,8 @@ sap.ui.define([
 
             if( aPurchaseOrdersItems.length > 0){
                 MessageToast.show("Planning is being updated");
+            }else{
+                MessageToast.show("No valid entries found");
             }
 
             aPurchaseOrdersItems.forEach(entity => {

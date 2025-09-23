@@ -17,7 +17,10 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /sap
-            url: https://srvsapdapp.agrobus.net
+            url: http://hsd:443
+            client: "100"
+            destination: HSD
+            authenticationType: BasicAuthentication
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
