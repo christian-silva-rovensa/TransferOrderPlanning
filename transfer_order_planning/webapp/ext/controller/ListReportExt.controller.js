@@ -277,8 +277,10 @@ sap.ui.define([
 
                     let oConfirmedLoadingTime = element.getProperty("ConfirmedLoadingTime");
 
-                    if (oConfirmedLoadingTime.ms !== undefined) {
-                        oConfirmedLoadingTime = this._msToTime(oConfirmedLoadingTime.ms);
+                    if (oConfirmedLoadingTime !== undefined) {
+                        if (oConfirmedLoadingTime.ms !== undefined) {
+                            oConfirmedLoadingTime = this._msToTime(oConfirmedLoadingTime.ms);
+                        }
                     }
 
                     aData.push({ PurchaseOrder: element.getProperty("PurchaseOrder"), 
