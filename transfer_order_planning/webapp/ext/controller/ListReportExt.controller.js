@@ -168,20 +168,6 @@ sap.ui.define([
                     }
                 }
 
-                if(entity.RequestFinishDate !== undefined){
-                    //entity.RequestFinishDate = moment(entity.RequestFinishDate).format('YYYY-MM-DDTHH:MM:SS');
-                    if(moment(entity.RequestFinishDate, arrAcceptedDateFormats).isValid()){
-                        entity.RequestFinishDate = moment(entity.RequestFinishDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
-                    }else{
-                        if(entity.RequestFinishDate == '00/00/0000'){
-                            // clears the field value on the backend 
-                            entity.RequestFinishDate = null;
-                        }else{
-                            entity.RequestFinishDate = undefined;
-                        }
-                    }
-                }
-
                 if(entity.FinalDelivery !== undefined){
                     //entity.FinalDelivery = moment(entity.FinalDelivery).format('YYYY-MM-DDTHH:MM:SS');
                     if(moment(entity.FinalDelivery, arrAcceptedDateFormats).isValid()){
@@ -413,19 +399,19 @@ sap.ui.define([
                              OrderQuantity: "0",
                              PurchaseOrderQuantityUnit: "",
                              PlantName: "",
-                             RequestFinishDate: "31/12/9999",
+                             RequestFinishDate: new Date("2099-12-31"),
                              JustRequestFinishDate: "",
-                             FinalFinishDate: "31/12/9999",
+                             FinalFinishDate: new Date("2099-12-31"),
                              JustFinalFinishDate: "",
                              FinalFinishDateNotes: "",
-                             ConfirmedLoadingDate: "31/12/9999",
+                             ConfirmedLoadingDate: new Date("2099-12-31"),
                              ConfirmedLoadingTime: "23:59:59",
                              ConfirmedLoadingDateNotes: "",
-                             ExpectedLoadingDate: "31/12/9999",
+                             ExpectedLoadingDate: new Date("2099-12-31"),
                              JustExpectedLoadingDate: "",
-                             FinalDelivery: "31/12/9999",
-                             MinArrivalDate: "31/12/9999",
-                             MaxArrivalDate: "31/12/9999",
+                             FinalDelivery: new Date("2099-12-31"),
+                             MinArrivalDate: new Date("2099-12-31"),
+                             MaxArrivalDate: new Date("2099-12-31"),
                              JustMaxArrivalDate: "",
                              TransportCompany: "",
                              TransportPlate: "",
