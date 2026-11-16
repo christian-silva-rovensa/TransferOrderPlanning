@@ -18,9 +18,8 @@ server:
         backend:
           - path: /sap
             url: http://hsd:443
-            client: "100"
+            client: '100'
             destination: HSD
-            authenticationType: BasicAuthentication
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -32,3 +31,8 @@ server:
       configuration:
         component: rovensa.transferorderplanning
         ui5Theme: sap_fiori_3
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**

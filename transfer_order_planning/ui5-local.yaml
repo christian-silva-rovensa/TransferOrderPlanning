@@ -31,9 +31,8 @@ server:
         backend:
           - path: /sap
             url: http://hsd:443
-            client: "100"
+            client: '100'
             destination: HSD
-            authenticationType: BasicAuthentication
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
@@ -43,6 +42,7 @@ server:
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
+            resolveExternalServiceReferences: true
         annotations:
           - localPath: ./webapp/localService/mainService/ZUI_MM_TRANSF_ORDER_PLAN_VAN.xml
             urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_MM_TRANSF_ORDER_PLAN_VAN',Version='0001')/$value/
@@ -51,3 +51,8 @@ server:
       configuration:
         component: rovensa.transferorderplanning
         ui5Theme: sap_fiori_3
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**

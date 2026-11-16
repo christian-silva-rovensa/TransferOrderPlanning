@@ -77,7 +77,7 @@ sap.ui.define([
             
             const data = await this._file.arrayBuffer();
             
-            const workbook = XLSX.read(data);
+            const workbook = XLSX.read(data, {cellDates: true, dateNF:"dd/mm/yyyy"});
 
             const worksheet = workbook.Sheets[workbook.SheetNames[0]];
                 
@@ -125,12 +125,34 @@ sap.ui.define([
 
             aData.forEach(entity => {
 
+                let arrAcceptedDateFormats = ["DD/MM/YYYY","MM/DD/YYYY","DD.MM.YYYY","MM.DD.YYYY","YYYY-MM-DD"];
+
                 if(entity.RequestFinishDate !== undefined){
-                    entity.RequestFinishDate = moment(entity.RequestFinishDate).format('YYYY-MM-DDTHH:MM:SS');
+                    //entity.RequestFinishDate = moment(entity.RequestFinishDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.RequestFinishDate, arrAcceptedDateFormats).isValid()){
+                        entity.RequestFinishDate = moment(entity.RequestFinishDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.RequestFinishDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.RequestFinishDate = null;
+                        }else{
+                            entity.RequestFinishDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.ConfirmedLoadingDate !== undefined){
-                    entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                    //entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.ConfirmedLoadingDate, arrAcceptedDateFormats).isValid()){
+                        entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.ConfirmedLoadingDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.ConfirmedLoadingDate = null;
+                        }else{
+                            entity.ConfirmedLoadingDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.ConfirmedLoadingTime !== undefined){
@@ -147,31 +169,101 @@ sap.ui.define([
                 }
 
                 if(entity.RequestFinishDate !== undefined){
-                    entity.RequestFinishDate = moment(entity.RequestFinishDate).format('YYYY-MM-DDTHH:MM:SS');
+                    //entity.RequestFinishDate = moment(entity.RequestFinishDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.RequestFinishDate, arrAcceptedDateFormats).isValid()){
+                        entity.RequestFinishDate = moment(entity.RequestFinishDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.RequestFinishDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.RequestFinishDate = null;
+                        }else{
+                            entity.RequestFinishDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.FinalDelivery !== undefined){
-                    entity.FinalDelivery = moment(entity.FinalDelivery).format('YYYY-MM-DDTHH:MM:SS');
+                    //entity.FinalDelivery = moment(entity.FinalDelivery).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.FinalDelivery, arrAcceptedDateFormats).isValid()){
+                        entity.FinalDelivery = moment(entity.FinalDelivery, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.FinalDelivery == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.FinalDelivery = null;
+                        }else{
+                            entity.FinalDelivery = undefined;
+                        }
+                    }
                 }
 
                 if(entity.FinalFinishDate !== undefined){
-                    entity.FinalFinishDate = moment(entity.FinalFinishDate).format('YYYY-MM-DDTHH:MM:SS');
+                    //entity.FinalFinishDate = moment(entity.FinalFinishDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.FinalFinishDate, arrAcceptedDateFormats).isValid()){
+                        entity.FinalFinishDate = moment(entity.FinalFinishDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.FinalFinishDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.FinalFinishDate = null;
+                        }else{
+                            entity.FinalFinishDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.ConfirmedLoadingDate !== undefined){
-                    entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                    //entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.ConfirmedLoadingDate, arrAcceptedDateFormats).isValid()){
+                        entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.ConfirmedLoadingDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.ConfirmedLoadingDate = null;
+                        }else{
+                            entity.ConfirmedLoadingDate = undefined;
+                        }
+                    }
                 }
                 
                 if(entity.ExpectedLoadingDate !== undefined){
-                    entity.ExpectedLoadingDate = moment(entity.ExpectedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                    //entity.ExpectedLoadingDate = moment(entity.ExpectedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.ExpectedLoadingDate, arrAcceptedDateFormats).isValid()){
+                        entity.ExpectedLoadingDate = moment(entity.ExpectedLoadingDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.ExpectedLoadingDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.ExpectedLoadingDate = null;
+                        }else{
+                            entity.ExpectedLoadingDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.MinArrivalDate !== undefined){
-                    entity.MinArrivalDate = moment(entity.MinArrivalDate).format('YYYY-MM-DDTHH:MM:SS');
+                    //entity.MinArrivalDate = moment(entity.MinArrivalDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.MinArrivalDate, arrAcceptedDateFormats).isValid()){
+                        entity.MinArrivalDate = moment(entity.MinArrivalDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.MinArrivalDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.MinArrivalDate = null;
+                        }else{
+                            entity.MinArrivalDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.MaxArrivalDate !== undefined){
-                    entity.MaxArrivalDate = moment(entity.MaxArrivalDate).format('YYYY-MM-DDTHH:MM:SS');
+                    //entity.MaxArrivalDate = moment(entity.MaxArrivalDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.MaxArrivalDate, arrAcceptedDateFormats).isValid()){
+                        entity.MaxArrivalDate = moment(entity.MaxArrivalDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.MaxArrivalDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.MaxArrivalDate = null;
+                        }else{
+                            entity.MaxArrivalDate = undefined;
+                        }
+                    }
                 }
 
                 var oPurchaseOrderItem = { PurchaseOrder: entity.PurchaseOrder, 

@@ -23,6 +23,6 @@ builder:
           name: ZUI5_MM_TO_PLAN
           description: SAP Fiori - Transfer Order Planning
           package: ZMM001
-          transport: HSDK971980
+          transport: HDRK902199
         exclude:
           - /test/

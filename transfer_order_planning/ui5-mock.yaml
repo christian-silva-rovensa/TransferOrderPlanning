@@ -18,9 +18,8 @@ server:
         backend:
           - path: /sap
             url: http://hsd:443
-            client: "100"
+            client: '100'
             destination: HSD
-            authenticationType: BasicAuthentication
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -36,6 +35,12 @@ server:
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
+            resolveExternalServiceReferences: true
         annotations:
           - localPath: ./webapp/localService/mainService/ZUI_MM_TRANSF_ORDER_PLAN_VAN.xml
             urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_MM_TRANSF_ORDER_PLAN_VAN',Version='0001')/$value/
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
